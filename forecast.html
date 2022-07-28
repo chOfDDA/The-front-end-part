@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stuttgart Forecast</title>
+    <style>
+        .highlight {
+            text-align: center;
+            font-size: 20px;
+            padding: 10px;
+        }
+        .highlight:hover {
+            background: rgba(245, 222, 179, 0.696);
+            border-radius: 10px;
+            display: block;
+        }
+        .common {
+            margin: 0 auto;
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: lighter;
+            margin: 0 0 15px 0;
+        }
+        .curdegree {
+           font-weight: bold;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 600;
+            color: rgb(12, 57, 192);
+            margin: 0;
+        }
+        h5 {
+            font-weight: lighter;
+            margin: 10px;
+        }
+        .click {
+            margin: 25px auto;
+            display: block;
+            padding: 15px 25px;
+            border-radius: 25px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            color: white;
+            background: rgb(12, 57, 192);
+            font-size: medium;
+            transition: all 150ms ease-in-out;
+            font-weight: bolder;
+        }
+        .click:hover {
+        border-width: 2px;
+        border-style: solid;
+        border-color: rgb(12, 57, 192);
+        background: white;
+        color:rgb(12, 57, 192);
+        }
+        p {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        img {
+            width: 20px;
+        }
+    </style>
+</head> 
+<body>
+    <h1>&#9925</h1>
+    <h1 class="weatherNow">Currently 18&#xb0 in Stuttgart</h1>
+    <h2>27&#xb0 / <span class = curdegree>16&#xb0</span></h2>
+
+    <div class="common">
+    <div class="highlight">
+        &#9925 Tomorrow
+        <h5>28&#xb0 / <span class = curdegree>17&#xb0</span></h5>
+    </div>
+
+    <div class="highlight">
+        <img src="https://cdn-0.emojis.wiki/emoji-pics/facebook/cloud-with-rain-facebook.png" alt=""> Sunday
+        <h5>26&#xb0 / <span class = curdegree>16&#xb0</span></h5>
+    </div>
+
+    <div class="highlight">
+        <img src="https://emojiguide.org/images/emoji/v/1wigpg5qhkgov.png" alt=""> Monday
+        <h5>25&#xb0 / <span class = curdegree>14&#xb0</span></h5>
+    </div>
+    </div>
+    
+    <button class="click"> Change city </button>
+    <p>Coded by Daria Dudkina</p>
+
+    <script>
+        function updateInfo(newSmile, newInfo) {
+            let selectSmile = document.querySelector("h1");
+            selectSmile.innerHTML = newSmile;
+            let selectTown = document.querySelector(".weatherNow");
+            selectTown.innerHTML = newInfo;
+        }
+        function changes() {
+            let city = prompt("What's your city/town?");
+            let degree = prompt("How many degree do you have?");
+
+            degree.trim();
+
+            if (degree >= 0) {
+                updateInfo("&#127780", `Currently ${degree}&#xb0 in ${city}`);
+            }
+            else {
+                updateInfo("&#10052", "Currently " + degree + "&#xb0 in " + city);
+            }
+        }
+
+        let changeCity = document.querySelector(".click");
+        changeCity.addEventListener("click", changes);
+    </script>
+</body>
+</html>
